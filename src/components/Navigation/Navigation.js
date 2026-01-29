@@ -23,7 +23,7 @@ export default function Navigation(){
     <motion.nav className={styles.navbar} initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45 }} role="navigation" aria-label="Primary navigation">
       <div className={styles.container}>
         <a href="#" className={styles.brand} onClick={(e) => { e.preventDefault(); window.scrollTo({ top:0, behavior: 'smooth' }); setOpen(false); }}>
-          <span className={styles.avatar} aria-hidden="true"> </span>
+          <img src="/images/profile.jpg" alt="Profile" className={styles.avatar} />
           <span className={styles.brandText}>Portfolio</span>
         </a>
 

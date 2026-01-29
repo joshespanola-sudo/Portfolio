@@ -4,51 +4,98 @@ import styles from './Hero.module.css';
 
 // A modern, cinematic hero section with accessible controls and subtle motion.
 function Hero() {
-  const handleScroll = (id) => {
+  const handleScroll = (e, id) => {
+    e.preventDefault();
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const container = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.12 } }
+  const containerVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: 12 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  const itemVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const scrollVariants = {
+    initial: { opacity: 0.5, y: 0 },
+    animate: {
+      opacity: [0.5, 1, 0.5],
+      y: [0, 10, 0],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+      },
+    },
   };
 
   return (
-    <header className={styles.hero} role="banner" aria-label="Intro">
-      <div className={styles.bgLayer} aria-hidden="true">
-        <div className={styles.glow} />
-        <div className={styles.shape} />
-      </div>
-
-      <motion.div className={styles.inner} variants={container} initial="hidden" animate="show">
-        <motion.p className={styles.kicker} variants={item} aria-hidden>
-          Creative Technology & Motion
-        </motion.p>
-
-        <motion.h1 className={styles.title} variants={item}>
-          HI, I'M JOSH ESPANOLA
+    <section className={styles.hero} role="banner" aria-label="Intro">
+      <motion.div 
+        className={styles.content} 
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <motion.h1 className={styles.title} variants={itemVariants}>
+          Hi, I'm Josh
         </motion.h1>
 
-        <motion.p className={styles.lead} variants={item}>
-          I design calm, cinematic interfaces and motion-led visuals focused on clarity and craft.
+        <motion.p className={styles.subtitle} variants={itemVariants}>
+          Animator & Multimedia Artist
         </motion.p>
 
-        <motion.div className={styles.ctaRow} variants={item}>
-          <button className={styles.primary} onClick={() => handleScroll('projects')}>View Work</button>
-          <button className={styles.ghost} onClick={() => handleScroll('contact')}>Get In Touch</button>
-        </motion.div>
+        <motion.p className={styles.description} variants={itemVariants}>
+          I create engaging visual content and bring ideas to life through creative 
+          animation and multimedia design. Welcome to my portfolio.
+        </motion.p>
 
-        <motion.div className={styles.indicator} variants={item} aria-hidden>
-          <span className={styles.bounce} />
+        <motion.div className={styles.buttonGroup} variants={itemVariants}>
+          <a 
+            href="#projects"
+            className={`${styles.button} ${styles.primary}`}
+            onClick={(e) => handleScroll(e, 'projects')}
+          >
+            View Projects
+          </a>
+          <a 
+            href="#contact"
+            className={`${styles.button} ${styles.secondary}`}
+            onClick={(e) => handleScroll(e, 'contact')}
+          >
+            Contact Me
+          </a>
         </motion.div>
       </motion.div>
-    </header>
+
+      <motion.div 
+        className={styles.scrollIndicator}
+        variants={scrollVariants}
+        initial="initial"
+        animate="animate"
+        aria-label="Scroll down to learn more"
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M12 5v14M19 18l-7 7-7-7" />
+        </svg>
+      </motion.div>
+    </section>
   );
 }
 
