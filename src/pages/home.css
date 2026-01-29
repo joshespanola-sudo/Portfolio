@@ -1,0 +1,6 @@
+.home-section{ padding:80px 20px 60px; min-height:60vh; display:flex; align-items:center; position:relative; }
+.hero{ max-width:980px; margin:0 auto; }
+.hero h1{ font-size:clamp(2rem,5vw,3.2rem); margin:0 0 12px 0; color:var(--text-high); }
+.hero p{ margin:0; color:var(--muted); max-width:720px; font-size:1.05rem; }
+.animated-bg{ position:absolute; inset:0; z-index:-1; }
+.floating-shape{ position:absolute; border-radius:50%; opacity:0.08; filter: blur(36px); transform: translateZ(0); animation: float 18s ease-in-out infinite; }

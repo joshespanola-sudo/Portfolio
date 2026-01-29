@@ -1,0 +1,24 @@
+/* App layout and animated background */
+.app-root{ min-height:100vh; display:flex; flex-direction:column; }
+main{ flex:1; }
+
+.animated-bg{
+  position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden;
+  background: radial-gradient(ellipse at center, rgba(80,80,90,0.12), transparent 30%), linear-gradient(120deg,#0b0b0d 0%, #0f0f14 60%);
+}
+
+.floating-shape{
+  position:absolute; border-radius:50%; opacity:0.06; filter:blur(24px);
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{ transform: translateY(0) translateX(0) scale(1); }
+  50%{ transform: translateY(-30px) translateX(20px) scale(1.05); }
+  100%{ transform: translateY(0) translateX(0) scale(1); }
+}
+
+/* respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  .floating-shape{ animation: none !important; }
+}

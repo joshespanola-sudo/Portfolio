@@ -1,0 +1,39 @@
+.navbar{
+  position:fixed;
+  left:0; right:0; top:0;
+  z-index:100;
+  backdrop-filter: blur(10px);
+  background-color: rgba(18,18,20,0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.container{
+  height:70px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 2rem; max-width:1200px; margin:0 auto;
+}
+
+.brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text-high); }
+.brandText{ font-weight:700; font-size:1rem; }
+.avatar{ width:40px; height:40px; border-radius:50%; display:inline-block; background:linear-gradient(90deg,#d8a8e8 0%, #8be3c3 100%); border:2px solid rgba(216,168,232,0.28); box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+
+.toggle{ display:none; background:none; border:0; color:var(--text-high); font-size:1.4rem; padding:8px; cursor:pointer; }
+.hamburger{ width:22px; height:2px; background:var(--text-high); display:inline-block; position:relative; }
+.hamburger::before,.hamburger::after{ content:''; position:absolute; left:0; right:0; height:2px; background:var(--text-high); }
+.hamburger::before{ top:-7px; }
+.hamburger::after{ bottom:-7px; }
+
+.links{ display:flex; gap:2rem; align-items:center; }
+.link{ color:var(--text-high); text-decoration:none; font-size:0.95rem; font-weight:500; position:relative; padding:8px 0; }
+.link::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:rgba(255,255,255,0.18); transition:width 0.28s ease; }
+.link:hover, .link:focus{ color:var(--muted); }
+.link:hover::after, .link:focus::after{ width:100%; }
+
+@media (max-width:768px){
+  .container{ padding:0 1rem; }
+  .toggle{ display:block; }
+  .links{ position:fixed; left:0; right:0; top:70px; flex-direction:column; gap:0; background-color: rgba(12,12,14,0.98); max-height:0; overflow:hidden; transition:max-height 0.32s ease, padding 0.32s ease; border-bottom: none; }
+  .links.open{ max-height:420px; padding:1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .link{ padding:1rem 1.25rem; width:100%; border-bottom:1px solid rgba(255,255,255,0.03); }
+  .link::after{ display:none; }
+}
+
+.link:focus-visible, .toggle:focus-visible, .brand:focus-visible{ outline:2px solid var(--text-high); outline-offset:4px; border-radius:4px; }

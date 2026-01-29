@@ -1,0 +1,231 @@
+.contactSection{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactHeader{
+  text-align: center;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px){
+  .contactHeader{ padding: 0 1rem; }
+}
+
+.contactTitle{
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 0;
+}
+
+.contactTitle .highlight{
+  background: linear-gradient(135deg, var(--accent), #5fd4a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px){
+  .contactTitle{ font-size: 2.5rem; }
+}
+
+@media (max-width: 480px){
+  .contactTitle{ font-size: 1.8rem; }
+}
+
+.subtitle{
+  font-size: 1.5rem;
+  color: #8b8b8b;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+@media (max-width: 768px){
+  .subtitle{ font-size: 1.2rem; }
+}
+
+@media (max-width: 480px){
+  .subtitle{ font-size: 1rem; }
+}
+
+.description{
+  font-size: 1rem;
+  color: rgba(245, 245, 245, 0.8);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px){
+  .description{ margin-bottom: 2rem; font-size: 0.95rem; }
+}
+
+/* Two-column layout */
+.contactContent{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1024px){
+  .contactContent{ gap: 2rem; }
+}
+
+@media (max-width: 768px){
+  .contactContent{ grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
+}
+
+.formWrapper{
+  width: 100%;
+}
+
+.infoSection{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoSection h3{
+  font-size: 1.5rem;
+  color: var(--text-high);
+  margin: 0;
+}
+
+.infoText{
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.socialLinksGrid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 480px){
+  .socialLinksGrid{ grid-template-columns: 1fr; }
+}
+
+.socialCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.2rem;
+  background: rgba(45, 45, 45, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-high);
+  transition: all 0.28s ease;
+}
+
+.socialCard:hover{
+  background: rgba(139, 227, 195, 0.08);
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.socialCard:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.socialIcon{
+  font-size: 2rem;
+  display: block;
+}
+
+.socialName{
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contactInfo{
+  padding: 1.5rem;
+  background: rgba(45, 45, 45, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+.contactInfo h4{
+  margin: 0 0 1rem 0;
+  color: var(--text-high);
+  font-size: 1.1rem;
+}
+
+.contactInfo p{
+  margin: 0.75rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.contactInfo a{
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.28s ease;
+}
+
+.contactInfo a:hover{
+  color: var(--text-high);
+  text-decoration: underline;
+}
+
+.contactInfo a:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.scrollIndicator{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  opacity: 0.5;
+  animation: bounce 2s infinite;
+}
+
+.scrollSvg{
+  width: 24px;
+  height: 24px;
+  stroke: #8b8b8b;
+  stroke-width: 2;
+  fill: none;
+}
+
+@keyframes bounce{
+  0%, 100%{ opacity: 0.5; transform: translateX(-50%) translateY(0); }
+  50%{ opacity: 1; transform: translateX(-50%) translateY(10px); }
+}
+
+@media (max-width: 768px){
+  .scrollIndicator{ bottom: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .scrollIndicator{ animation: none; }
+}
+
