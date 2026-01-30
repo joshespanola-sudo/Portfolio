@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './ContactForm.module.css';
+import emailjs from '@emailjs/browser';
+
 
 function ContactForm(){
   const formRef = useRef(null);
