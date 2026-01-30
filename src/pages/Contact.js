@@ -79,7 +79,7 @@ function Contact(){
 
           <motion.div className={styles.contactInfo} variants={itemVariants}>
             <h4>Other Ways to Reach</h4>
-            <p><strong>Email:</strong> <a href="mailto:josh@example.com">josh@example.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:josh.espanola@urios.edu.ph">josh.espanola@urios.edu.ph</a></p>
             <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-8900</a></p>
             <p><strong>Location:</strong> <span>Butuan City, Philippines</span></p>
           </motion.div>

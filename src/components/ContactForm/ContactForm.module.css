@@ -7,10 +7,10 @@
 
 .formTitle{
   font-size:1.6rem;
-  color:var(--accent);
+  color:#b0b0b0; /* match contact title gray */
   margin-bottom:0.5rem;
   margin-top:0;
-}
+} 
 
 @media (max-width:480px){
   .formTitle{ font-size:1.3rem; }
@@ -67,17 +67,18 @@ textarea::placeholder{
   color:#888;
 }
 
+/* Hover and focus use a purple tone */
 input:hover,
 textarea:hover{
-  border-color:var(--accent);
+  border-color:#d8a8e8;
 }
 
 input:focus,
 textarea:focus{
   outline:none;
-  border-color:var(--accent);
+  border-color:#d8a8e8;
   background-color:#111114;
-  box-shadow:0 0 0 3px rgba(139,227,195,0.06);
+  box-shadow:0 0 0 3px rgba(216,168,232,0.06);
 }
 
 textarea{
@@ -106,6 +107,8 @@ textarea{
 .submitBtn:hover:not(:disabled){
   transform:translateY(-2px);
   box-shadow:0 10px 24px rgba(0,0,0,0.6);
+  background: linear-gradient(135deg, #d8a8e8, #9b7bd8); /* purple hover */
+  color:#fff;
 }
 
 .submitBtn:focus{

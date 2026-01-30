@@ -4,11 +4,11 @@ import ProjectCard from '../components/ProjectCard/ProjectCard';
 import styles from './Projects.module.css';
 
 const projects = [
-  { id: 1, title: '2D Animation', description: 'Advanced 2D animation project featuring complex character design, smooth keyframe animations, and engaging storytelling.', icon: '🎬', tags: ['Animation', 'Character'] },
-  { id: 2, title: 'Motion Graphics Promo', description: 'Dynamic motion graphics video featuring animated typography, transitions, and visual effects for digital media.', icon: '✨', tags: ['Motion', 'Graphics'] },
-  { id: 3, title: '3D Product Visualization', description: 'Interactive 3D product showcase with realistic lighting, materials, and smooth camera movements.', icon: '🎭', tags: ['3D', 'WebGL'] },
+  { id: 1, title: '2D Animation', description: 'Advanced 2D animation project featuring complex character design, smooth keyframe animations, and engaging storytelling.', icon: '🎬', tags: ['Animation', 'Character'], image: { type: 'video', src: '/videos/PosetPose.mp4', poster: '/images/PosetPose-poster.png', alt: '2D Animation Preview' } },
+  { id: 2, title: 'Motion Graphics Promo', description: 'Dynamic motion graphics video featuring animated typography, transitions, and visual effects for digital media.', icon: '✨', tags: ['Motion', 'Graphics'], image: { type: 'video', src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', poster: 'https://via.placeholder.com/800x450.png?text=Motion+Graphics', alt: 'Motion Graphics Promo Preview' } },
+  { id: 3, title: '3D Product Visualization', description: 'Interactive 3D product showcase with realistic lighting, materials, and smooth camera movements.', icon: '🎭', tags: ['3D', 'WebGL'], image: 'https://via.placeholder.com/800x450.png?text=3D+Product' },
   { id: 4, title: 'UI Animation Library', description: 'Comprehensive collection of reusable UI animations and micro-interactions built with Framer Motion for React.', icon: '⚡', tags: ['React', 'UI'] },
-  { id: 5, title: 'Visual Effects Reel', description: 'Stunning compilation of VFX work including particle systems, fluid simulations, and advanced visual effects.', icon: '🌟', tags: ['VFX', 'Effects'] },
+  { id: 5, title: 'Visual Effects Reel', description: 'Stunning compilation of VFX work including particle systems, fluid simulations, and advanced visual effects.', icon: '🌟', tags: ['VFX', 'Effects'], image: 'https://via.placeholder.com/800x450.png?text=VFX+Reel' },
   { id: 6, title: 'Interactive Story', description: 'Web-based interactive narrative with branching storylines, animated illustrations, and immersive sound design.', icon: '📖', tags: ['Interactive', 'Story'] }
 ];
 

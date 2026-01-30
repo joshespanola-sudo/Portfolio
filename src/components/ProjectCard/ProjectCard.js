@@ -22,11 +22,28 @@ function ProjectCard({ title, description, tags = [], image = null, index = 0, l
       role="article"
       aria-label={`${title} project card`}
     >
-      {image && (
+        {image && (
         <div className={styles.imageContainer}>
-          <img src={image} alt={`${title} project`} loading="lazy" />
+          {
+            // image can be a string (image URL) or an object like { type: 'video', src, poster, alt }
+            typeof image === 'string' ? (
+              <img src={image} alt={`${title} project`} loading="lazy" />
+            ) : image.type === 'video' ? (
+              <video
+                src={image.src}
+                poster={image.poster}
+                playsInline
+                muted
+                loop
+                autoPlay
+                aria-label={image.alt || `${title} video thumbnail`}
+              />
+            ) : (
+              <img src={image.src || ''} alt={image.alt || `${title} project`} loading="lazy" />
+            )
+          }
         </div>
-      )}
+      )} 
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
