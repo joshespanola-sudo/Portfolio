@@ -39,32 +39,44 @@ function ContactForm(){
     setLoading(true);
     setError('');
 
-    // Simulate form submission (replace with emailjs if configured)
+    // Use EmailJS if configured
     try {
-      // If using EmailJS, uncomment and configure:
-      // emailjs.send(
-      //   process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      //   process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      //   {
-      //     from_name: formData.name,
-      //     from_email: formData.email,
-      //     subject: formData.subject,
-      //     message: formData.message,
-      //     time: new Date().toLocaleString(),
-      //   },
-      //   process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-      // );
+      // Basic env var check to give clearer debug feedback
+      if (!process.env.REACT_APP_EMAILJS_SERVICE_ID || !process.env.REACT_APP_EMAILJS_TEMPLATE_ID || !process.env.REACT_APP_EMAILJS_PUBLIC_KEY) {
+        console.warn('EmailJS environment variables are missing. Please add REACT_APP_EMAILJS_SERVICE_ID, REACT_APP_EMAILJS_TEMPLATE_ID and REACT_APP_EMAILJS_PUBLIC_KEY to your .env file and restart the dev server.');
+        setError('Email service is not configured.');
+        setLoading(false);
+        return;
+      }
 
-      // For now, simulate successful submission
-      setTimeout(() => {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        time: new Date().toLocaleString(),
+      };
+
+      console.log('Sending via EmailJS with params:', templateParams);
+
+      emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      ).then((response) => {
+        console.log('EmailJS success', response);
         setSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
         setLoading(false);
-
-        // Clear success message after 5 seconds
         setTimeout(() => setSubmitted(false), 5000);
-      }, 800);
+      }).catch((err) => {
+        console.error('EmailJS error', err);
+        setError('Failed to send message. Please try again later.');
+        setLoading(false);
+      });
     } catch (err) {
+      console.error('Unexpected error sending email', err);
       setError('Failed to send message. Please try again.');
       setLoading(false);
     }
